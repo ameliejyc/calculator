@@ -1,50 +1,51 @@
-var operands = ['÷', 'x', '+', '-']
+var operands = ['÷', 'x', '+', '-'];
 var keys = document.querySelectorAll('button');
-
-// redo all of this not using innerHTML
 
 for (i = 0; i < keys.length; i++) {
   keys[i].addEventListener('click', function(){
     var answer = document.getElementById('answer');
     var answerValue = answer.innerHTML;
     var buttonValue = this.innerHTML;
+    var history = document.getElementById('history');
+    var historyValue = history.innerHTML;
 
     // if AC is pressed, clear the display completely
     if (buttonValue === 'AC') {
-      answer.createTextNode('0');
+      answer.innerHTML = '0';
     }
 
-    // if CE is pressed, clear the last value
+    // if CE is pressed, clear the last value only. NOT WORKING BECAUSE THE ANSWER VALUE ISN'T COMING UP YET?
     else if (buttonValue === 'CE') {
       if (answerValue.length > 1) {
         answerValue = answerValue.slice(0, -1);
       }
-      answer.createTextNode('0');
+      answer.innerHTML = '0';
     }
 
-    // if = is pressed, remove any values that might cause an error in the calculation
+    // if '=' is pressed, remove any values that might cause an error in the calculation
     else if (buttonValue === '=') {
       var lastChar = answerValue[answerValue.length-1];
       if (lastChar === '.' || lastChar === '÷' || lastChar === '+' || lastChar === '-' || lastChar === 'x') {
         answerValue = answerValue.slice(0, -1);
       }
-    // and then make operands mathematically functional
+    // and then make operands mathematically functional so that they can be evaluated
       answerValue = answerValue.replace(/x/g, '*').replace(/÷/g, '/');
       console.log(answerValue);
+      history.innerHTML = answerValue;
       if (answerValue !== '') {
         var evaluation = eval(answerValue);
-        answer.createTextNode(evaluation);
+        answer.innerHTML = evaluation;
+        // get the display to remove the calculation now
       }
     }
-
     // if an operand is pressed
 		else if (operands.indexOf(buttonValue) !== -1) {
 			var lastChar = answerValue[answerValue.length-1];
-			//If display is not empty and the last character in the display is not an operator, add btnValue to display
+			// if display is not empty and the last character in the display is not an operator, add btnValue to display
 			if (answerValue !== '' && operands.indexOf(lastChar) === -1) {
 				answer.innerHTML += buttonValue;
 			}
-			// If display is empty and buttonValue is -, add buttonValue to display
+			// allow display to begin with '-' for negative numbers
 			else if (answerValue === '' && buttonValue === '-') {
 				answer.innerHTML += buttonValue;
 			}
@@ -54,12 +55,12 @@ for (i = 0; i < keys.length; i++) {
 		else {
 			answer.innerHTML += buttonValue;
 		}
-
-    // Make sure there are not multiple decimal places
-    // Cut answer to appropriate number of digits
-    // Remove zeros from start of calculation
-    // Reset answer to zero when calculation finished
-    // Decimals aren't working. Why?
-
   }, false);
 }
+// redo all of this not using innerHTML
+// Make sure there are not multiple decimal places
+// Cut answer to appropriate number of digits
+// Remove zeros from start of calculation
+// Reset answer to zero when calculation finished
+// Make history work
+// Decimals aren't working. Why?
