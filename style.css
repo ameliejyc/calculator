@@ -18,6 +18,10 @@ body {
   margin: auto;
 }
 
+/**************************
+CALCULATOR DISPLAY
+**************************/
+
 section {
   position: relative; /*what does this do here?*/
 }
@@ -27,7 +31,23 @@ section {
   width: 460px;
   margin-top: 6rem;
   height: 100px;
+  text-align: right;
+  font-family: 'Droid Sans Mono', monospace;
 }
+
+#answer {
+  margin: 5px 10px 0px 10px;
+  font-size: 3rem;
+}
+
+#history {
+  margin: 0px 10px;
+  font-size: 1rem;
+}
+
+/**************************
+CALCULATOR BUTTONS
+**************************/
 
 #calculator {
   display: inline-block;
@@ -47,14 +67,14 @@ button {
 
 button:hover {
   border-color: rgb(020, 030, 030);
-  background-color: rgb(95, 199, 135);
+  background-color: rgb(23, 223, 100);
   margin:
 }
 
 button:active {
   transform: translate(0px, 3px);
   box-shadow: none;
-  border-color: rgb(95, 199, 135); /*this doesn't do anything*/
+  border-color: rgb(23, 223, 100); /*this doesn't do anything*/
 }
 
 #on, #equals {
@@ -68,7 +88,15 @@ button:active {
   }
 }
 
+/**************************
+FOOTER
+**************************/
+
 footer {
   bottom: 15px;
+  text-align: center;
+  width: 460px;
+  margin: auto;
   position: fixed; /*I don't want it overlapping when the page is small - how?*/
+  font-family: 'Droid Sans Mono', monospace;
 }
