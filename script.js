@@ -11,7 +11,7 @@ for (i = 0; i < keys.length; i++) {
 
     // if AC is pressed, clear the display completely
     if (buttonValue === 'AC') {
-      answer.innerHTML = '0';
+      answer.innerHTML = '';
     }
 
     // if CE is pressed, clear the last value only
@@ -36,7 +36,6 @@ for (i = 0; i < keys.length; i++) {
       if (answerValue !== '') {
         var evaluation = eval(answerValue);
         answer.innerHTML = evaluation;
-        // get the display to remove the calculation now
       }
     }
     // if an operand is pressed
@@ -61,7 +60,5 @@ for (i = 0; i < keys.length; i++) {
 // redo all of this not using innerHTML?
 // Make sure there are not multiple decimal places
 // Cut answer to appropriate number of digits
-// Remove zeros from start of calculation
 // Reset answer to zero when calculation finished
-// Decimals aren't working. Why?
 // Reset display after equals if a number is pressed, otherwise keep it if an operand is pressed
