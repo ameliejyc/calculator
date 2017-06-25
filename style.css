@@ -5,10 +5,6 @@
   color: #fff;
 }
 
-body {
-  margin-bottom: 40px; /*this is doing nothing helpful right now*/
-}
-
 .container {
   display: -webkit-flex;
   display: flex;
@@ -23,7 +19,7 @@ CALCULATOR DISPLAY
 **************************/
 
 section {
-  position: relative; /*what does this do here?*/
+  position: relative; /* what is this doing? */
 }
 
 #display {
@@ -74,14 +70,14 @@ button:hover {
 button:active {
   transform: translate(0px, 3px);
   box-shadow: none;
-  border-color: rgb(23, 223, 100); /*this doesn't do anything*/
+  border-color: rgb(23, 223, 100); /* this doesn't do anything */
 }
 
 #on, #equals {
   width: 215px;
 }
 
-/*this section isn't working one bit*/
+/* this section isn't working */
 #on, #clear {
   button:hover {
     background-color: #f6d02b;
@@ -97,6 +93,6 @@ footer {
   text-align: center;
   width: 460px;
   margin: auto;
-  position: fixed; /*I don't want it overlapping when the page is small - how?*/
+  position: fixed; /* I don't want it overlapping when the page is small - how? */
   font-family: 'Droid Sans Mono', monospace;
 }

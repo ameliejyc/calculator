@@ -14,10 +14,11 @@ for (i = 0; i < keys.length; i++) {
       answer.innerHTML = '0';
     }
 
-    // if CE is pressed, clear the last value only. NOT WORKING BECAUSE THE ANSWER VALUE ISN'T COMING UP YET?
+    // if CE is pressed, clear the last value only
     else if (buttonValue === 'CE') {
       if (answerValue.length > 1) {
         answerValue = answerValue.slice(0, -1);
+        answer.innerHTML = answerValue;
       }
       answer.innerHTML = '0';
     }
@@ -41,7 +42,7 @@ for (i = 0; i < keys.length; i++) {
     // if an operand is pressed
 		else if (operands.indexOf(buttonValue) !== -1) {
 			var lastChar = answerValue[answerValue.length-1];
-			// if display is not empty and the last character in the display is not an operator, add btnValue to display
+			// if display is not empty and the last character in the display is not an operator, add buttonValue to display
 			if (answerValue !== '' && operands.indexOf(lastChar) === -1) {
 				answer.innerHTML += buttonValue;
 			}
@@ -51,16 +52,16 @@ for (i = 0; i < keys.length; i++) {
 			}
 		}
 
-		// if other button is pressed, add button's innerHTML to the screen
+		// for any other button that is pressed, add button's innerHTML to the screen
 		else {
 			answer.innerHTML += buttonValue;
 		}
   }, false);
 }
-// redo all of this not using innerHTML
+// redo all of this not using innerHTML?
 // Make sure there are not multiple decimal places
 // Cut answer to appropriate number of digits
 // Remove zeros from start of calculation
 // Reset answer to zero when calculation finished
-// Make history work
 // Decimals aren't working. Why?
+// Reset display after equals if a number is pressed, otherwise keep it if an operand is pressed
